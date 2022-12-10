@@ -49,6 +49,7 @@ console.log(goodData, crappyError); // ['cheddar', 'gouda'] undefined
 ```
 
 Further reading
-[await to js](https://www.npmjs.com/package/await-to-js)
-[github doublet](https://github.com/mats852/doublet)
-[github go go try](https://github.com/thelinuxlich/go-go-try)
+
+- [Await to JS](https://www.npmjs.com/package/await-to-js)
+- [Github - Doublet](https://github.com/mats852/doublet)
+- [Github - Go Go Try](https://github.com/thelinuxlich/go-go-try)
