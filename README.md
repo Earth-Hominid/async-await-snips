@@ -48,7 +48,32 @@ const { data: goodData, error: crappyError } = await wrapObject(getCheese());
 console.log(goodData, crappyError); // ['cheddar', 'gouda'] undefined
 ```
 
-Further reading
+TypeScript example from Doublet
+
+```ts
+export default function doublet<TCallback extends Callback>(
+  cb: TCallback,
+  ...args: Parameters<TCallback>
+): MaybeAsyncResult<ReturnType<TCallback>> {
+  try {
+    const result = cb(...(args as Array<unknown>));
+
+    if (result instanceof Promise) {
+      return result
+        .then((rx) => [null, rx])
+        .catch((error) => [error, null]) as MaybeAsyncResult<
+        ReturnType<TCallback>
+      >;
+    }
+
+    return [null, result] as MaybeAsyncResult<ReturnType<TCallback>>;
+  } catch (error) {
+    return [error, null] as MaybeAsyncResult<ReturnType<TCallback>>;
+  }
+}
+```
+
+Further sources
 
 - [Await to JS](https://www.npmjs.com/package/await-to-js)
 - [Github - Doublet](https://github.com/mats852/doublet)
