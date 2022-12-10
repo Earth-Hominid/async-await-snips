@@ -48,7 +48,7 @@ const { data: goodData, error: crappyError } = await wrapObject(getCheese());
 console.log(goodData, crappyError); // ['cheddar', 'gouda'] undefined
 ```
 
-TypeScript example from Doublet
+## TypeScript example from Doublet
 
 ```ts
 export default function doublet<TCallback extends Callback>(
